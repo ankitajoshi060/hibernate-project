@@ -1,5 +1,7 @@
 package com.notetaker.dto;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +14,11 @@ public class Note {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="note_id")
 	private int noteId;
-	private String titile;
+	private String title;
+	@Column(length = 3000)
 	private String content;
+	private Date date;
+	
 	
 	public Note() {
 		super();
@@ -25,11 +30,11 @@ public class Note {
 	public void setNoteId(int noteId) {
 		this.noteId = noteId;
 	}
-	public String getTitile() {
-		return titile;
+	public String getTitle() {
+		return title;
 	}
-	public void setTitile(String titile) {
-		this.titile = titile;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -37,10 +42,17 @@ public class Note {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	@Override
 	public String toString() {
-		return "Note [noteId=" + noteId + ", titile=" + titile + ", content=" + content + "]";
+		return "Note [noteId=" + noteId + ", titile=" + title + ", content=" + content + ", date=" + date + "]";
 	}
+	
 	
 	
 }
