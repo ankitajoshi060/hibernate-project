@@ -5,6 +5,7 @@ firstHibernateProject/
 HQL/
 ManyToMany/
 OneToManyMapping/
+OneToOneMapping/
 Servers/
 Student/
 xmlMapping/
