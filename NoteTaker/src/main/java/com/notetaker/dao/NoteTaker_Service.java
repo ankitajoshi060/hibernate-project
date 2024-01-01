@@ -1,9 +1,13 @@
 package com.notetaker.dao;
 
+import java.io.PrintWriter;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import com.notetaker.dto.Note;
 
 public class NoteTaker_Service {
 
@@ -24,5 +28,31 @@ public class NoteTaker_Service {
 		}
 	}
 	
+	public void saveNote(Note note) {
+		Session session =NoteTaker_Service.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(note);
+		transaction.commit();
+		session.close();
+	}
+	
+	public void deleteNote(int id) {
+		
+		Session session = NoteTaker_Service.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Note note = session.get(Note.class, id);
+		if (note!=null) {
+			
+			session.delete(note);
+		}
+		else {
+			System.out.println("Note not found");
+		}
+		
+		
+		transaction.commit();
+		session.close();
+	}
 	
 }

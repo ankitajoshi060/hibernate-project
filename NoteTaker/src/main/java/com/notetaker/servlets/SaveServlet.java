@@ -32,11 +32,8 @@ public class SaveServlet extends HttpServlet {
 			note1.setContent(content);
 			note1.setDate(new Date());
 			
-			Session session =NoteTaker_Service.getSessionFactory().openSession();
-			Transaction transaction = session.beginTransaction();
-			session.save(note1);
-			transaction.commit();
-			session.close();
+			NoteTaker_Service service = new NoteTaker_Service();
+			service.saveNote(note1);
 			
 			resp.setContentType("text/html ");
 			PrintWriter out = resp.getWriter();

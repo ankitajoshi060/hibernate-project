@@ -32,17 +32,17 @@
 	for (Note note : list) {
 	%>
 	<div class="note-div">
-		<h4>Note title:</h4>
+		<h3>Note title:</h3>
 		<p>
 			<%=note.getTitle()%>
 		</p>
 
-		<h4>Note content:</h4>
+		<h3>Note content:</h3>
 		<p>
 			<%=note.getContent()%>
 		</p>
-		<button>Edit</button>
-		<button>Delete</button>
+		<button><a href="deleteServlet?note_id=<%= note.getNoteId()%>">Delete</a></button>
+		<button><a href="deleteServlet">Edit</a></button>
 	</div>
 	<%
 	}
