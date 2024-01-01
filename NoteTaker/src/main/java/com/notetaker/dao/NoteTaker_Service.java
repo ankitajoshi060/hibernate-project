@@ -29,16 +29,29 @@ public class NoteTaker_Service {
 	}
 	
 	public void saveNote(Note note) {
-		Session session =NoteTaker_Service.getSessionFactory().openSession();
+		Session session =getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(note);
 		transaction.commit();
 		session.close();
 	}
 	
+	public Note findNoteById(int id){
+		Session session =getSessionFactory().openSession();
+		Note note = session.get(Note.class, id);
+		session.close();
+		return note;
+	}
+	public void updateNote(Note note) {
+		Session session = getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		session.update(note);
+		transaction.commit();
+		session.close();
+	}
 	public void deleteNote(int id) {
 		
-		Session session = NoteTaker_Service.getSessionFactory().openSession();
+		Session session =getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
 		Note note = session.get(Note.class, id);

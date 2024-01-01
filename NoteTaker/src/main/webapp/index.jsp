@@ -15,7 +15,7 @@
 			<textarea rows="10" cols="100" name="content" placeholder="Enter your content here" required="required"></textarea>
 		</div>
 		<br>
-		<input type="submit" name="add" />
+		<input type="submit" value="add" />
 	</form>
 </body>
 </html>

@@ -19,6 +19,10 @@
 	width: 70%;
 	height: 300px;
 }
+a{
+	text-decoration: none;
+	color:black;
+}
 </style>
 
 </head>
@@ -42,7 +46,7 @@
 			<%=note.getContent()%>
 		</p>
 		<button><a href="deleteServlet?note_id=<%= note.getNoteId()%>">Delete</a></button>
-		<button><a href="deleteServlet">Edit</a></button>
+		<button><a href="edit.jsp?note_id=<%= note.getNoteId()%>">Edit</a></button>
 	</div>
 	<%
 	}
