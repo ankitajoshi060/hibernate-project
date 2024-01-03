@@ -7,35 +7,51 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<%
-		int id = Integer.parseInt(request.getParameter("note_id"));
-		NoteTaker_Service service = new NoteTaker_Service();
-		Note note = service.findNoteById(id);
-	%>
-	<h2>Edit your note</h2>
-	<form action="updateServlet" method="post">
-		<div>
-			
-			<input type="number" name="note_id" value=<%=note.getNoteId()%> hidden="hidden">
-			
-			<label><b> Note title</b></label><br> <input type="text"
-				name="title" placeholder="Enter here" required="required"
-				value=<%= note.getTitle()%>>
-		</div>
-		<br>
-		<div>
-			<label><b>Note Content</b></label><br>
-			<textarea 
-				rows="10" cols="100" name="content"
-				placeholder="Enter your content here" 
-				required="required" ><%= note.getContent()%>
-			</textarea>
-		</div>
-		<br> 
-		<input type="submit" value="Edit" />
-	</form>
+	<div class=.container>
+		<%@include file="navbar.jsp"%>
+	</div>
 
+	<%
+	int id = Integer.parseInt(request.getParameter("note_id"));
+	NoteTaker_Service service = new NoteTaker_Service();
+	Note note = service.findNoteById(id);
+	%>
+	
+	<div class="container">
+		<br>
+		<h2>Edit your note :</h2>
+		<form action="updateServlet" method="post">
+			<input type="number" name="note_id" value=<%=id%> hidden>
+			<div class="mb-3">
+				<label for="title" class="form-label"><b>Note Title</b></label> 
+				<input
+					type="text" class="form-control" id="title"
+					placeholder="Enter Here" name="title" value=<%= note.getTitle()%> required>
+			</div>
+			<div class="mb-3">
+				<label for="content" class="form-label"><b>Note Content</b></label>
+				<textarea type="text" class="form-control" id="content"
+					placeholder="Enter your content here" required="required"
+					name="content" style="height: 200px"><%= note.getContent()%></textarea>
+			</div>
+			<div class="container text-center">
+				<button type="submit" class="btn btn-success">Save</button>
+			</div>
+		</form>
+
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
 </body>
 </html>

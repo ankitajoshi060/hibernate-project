@@ -1,21 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Add Notes</title>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<h2>Please fill the note details</h2>
-	<form action="saveNoteServlet" method="post">
-		<div>
-			<label><b> Note title</b></label><br>
-			<input type="text" name="title" placeholder="Enter here" required="required">
-		</div>
+
+	<div>
+		<%@include file="navbar.jsp" %>
+		
 		<br>
-		<div>
-			<label><b>Note Content</b></label><br>
-			<textarea rows="10" cols="100" name="content" placeholder="Enter your content here" required="required"></textarea>
+		
+		<div class="card mx-auto py-2" style="width:70%">
+			<img alt="note-imgae" class="image-fluid mx-auto" style="max-width:300px" src="images/note.png">
+			<h1 class="text-primary text-uppercase text-center mt-3">Start Here</h1>
+			<div class="container text-center">
+				<button class="btn btn-outline-primary" ><a href="addnote.jsp">Click </a></button>			
+			</div>
 		</div>
-		<br>
-		<input type="submit" value="add" />
-	</form>
+	</div>
+	
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
 </body>
 </html>

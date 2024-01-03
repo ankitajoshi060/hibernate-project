@@ -1,0 +1,36 @@
+<div class="note-div">
+		<h3>Note title:</h3>
+		<p>
+			<%=note.getTitle()%>
+		</p>
+
+		<h3>Note content:</h3>
+		<p>
+			<%=note.getContent()%>
+		</p>
+		<button>
+			<a href="deleteServlet?note_id=<%=note.getNoteId()%>">Delete</a>
+		</button>
+		<button>
+			<a href="edit.jsp?note_id=<%=note.getNoteId()%>">Edit</a>
+		</button>
+	</div>
+	
+	
+		<form action="updateServlet" method="post">
+		<div>
+
+			<input type="number" name="note_id" value=<%=note.getNoteId()%>
+				hidden="hidden"> <label><b> Note title</b></label><br>
+			<input type="text" name="title" placeholder="Enter here"
+				required="required" value=<%=note.getTitle()%>>
+		</div>
+		<br>
+		<div>
+			<label><b>Note Content</b></label><br>
+			<textarea rows="10" cols="100" name="content"
+				placeholder="Enter your content here" required="required"><%=note.getContent()%>
+			</textarea>
+		</div>
+		<br> <input type="submit" value="Edit" />
+	</form>

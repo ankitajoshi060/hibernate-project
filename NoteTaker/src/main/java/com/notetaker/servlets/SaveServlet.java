@@ -37,8 +37,9 @@ public class SaveServlet extends HttpServlet {
 			
 			resp.setContentType("text/html ");
 			PrintWriter out = resp.getWriter();
-			out.print("<h3>Note added successfully</h3>");
-			out.print("<a href='showNote.jsp'>View Notes</a>");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("addnote.jsp");
+			dispatcher.include(req, resp);
+			out.print("<p style='color:blue; text-decoration:underline; font-size:16px; margin:0 0 0 20px'>Note added successfully...</p>");
 			
 		
 		} catch (Exception e) {
